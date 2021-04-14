@@ -352,7 +352,7 @@ GLOBAL_LIST_EMPTY(cryopod_computers)
 			to_chat(user, "<span class='danger'>You can't put [target] into [src]. [target.p_theyre(capitalized = TRUE)] conscious.</span>")
 		return
 	else if(target.client)
-		if(alert(target,"Would you like to enter cryosleep?",,"Yes","No") == "No")
+		if(tgui_alert(target,"Would you like to enter cryosleep?","Enter cryosleep",list("Yes","No")) == "No")
 			return
 
 	var/generic_plsnoleave_message = " Please adminhelp before leaving the round, even if there are no administrators online!"
@@ -362,10 +362,10 @@ GLOBAL_LIST_EMPTY(cryopod_computers)
 		var/datum/antagonist/antag = target.mind.has_antag_datum(/datum/antagonist)
 		var/datum/job/target_job = SSjob.GetJob(target.mind.assigned_role)
 		if(target_job.req_admin_notify)
-			alert("You're an important role![generic_plsnoleave_message]")
+			tgui_alert(usr, "You're an important role![generic_plsnoleave_message]",, list("Ok"))
 			caught = TRUE
 		if(antag)
-			alert("You're \a [antag.name]![generic_plsnoleave_message]")
+			tgui_alert(usr, "You're \a [antag.name]![generic_plsnoleave_message]",, list("Ok"))
 			caught = TRUE
 		if(caught)
 			COOLDOWN_START(target.client, cryo_warned, 5 MINUTES)
