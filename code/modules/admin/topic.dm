@@ -630,9 +630,9 @@
 		if(!check_rights(R_ADMIN))
 			return
 		if(SSticker?.mode)
-			return tgui_alert(usr, "The game has already started.",, list("Ok"))
+			return tgui_alert(usr, "The game has already started.")
 		if(!SSticker.is_mode("dynamic"))
-			return tgui_alert(usr, "The game mode has to be dynamic mode.",, list("Ok"))
+			return tgui_alert(usr, "The game mode has to be dynamic mode.")
 		var/roundstart_rules = list()
 		for (var/rule in subtypesof(/datum/dynamic_ruleset/roundstart))
 			var/datum/dynamic_ruleset/roundstart/newrule = new rule()
@@ -666,9 +666,9 @@
 			return
 
 		if(SSticker?.mode)
-			return tgui_alert(usr, "The game has already started.",, list("Ok"))
+			return tgui_alert(usr, "The game has already started.")
 		if(!SSticker.is_mode("dynamic"))
-			return tgui_alert(usr, "The game mode has to be dynamic mode!",, list("Ok"))
+			return tgui_alert(usr, "The game mode has to be dynamic mode!")
 
 		dynamic_mode_options(usr)
 	else if(href_list["f_dynamic_force_extended"])
@@ -676,7 +676,7 @@
 			return
 
 		if(!SSticker.is_mode("dynamic"))
-			return tgui_alert(usr, "The game mode has to be dynamic mode!",, list("Ok"))
+			return tgui_alert(usr, "The game mode has to be dynamic mode!")
 
 		GLOB.dynamic_forced_extended = !GLOB.dynamic_forced_extended
 		log_admin("[key_name(usr)] set 'forced_extended' to [GLOB.dynamic_forced_extended].")
@@ -688,7 +688,7 @@
 			return
 
 		if(!SSticker.is_mode("dynamic"))
-			return tgui_alert(usr, "The game mode has to be dynamic mode!",, list("Ok"))
+			return tgui_alert(usr, "The game mode has to be dynamic mode!")
 
 		GLOB.dynamic_no_stacking = !GLOB.dynamic_no_stacking
 		log_admin("[key_name(usr)] set 'no_stacking' to [GLOB.dynamic_no_stacking].")
@@ -699,7 +699,7 @@
 			return
 
 		if(!SSticker.is_mode("dynamic"))
-			return tgui_alert(usr, "The game mode has to be dynamic mode!",, list("Ok"))
+			return tgui_alert(usr, "The game mode has to be dynamic mode!")
 
 		GLOB.dynamic_stacking_limit = input(usr,"Change the threat limit at which round-endings rulesets will start to stack.", "Change stacking limit", null) as num
 		log_admin("[key_name(usr)] set 'stacking_limit' to [GLOB.dynamic_stacking_limit].")
@@ -711,14 +711,14 @@
 			return
 
 		if(SSticker?.mode)
-			return tgui_alert(usr, "The game has already started.",, list("Ok"))
+			return tgui_alert(usr, "The game has already started.")
 
 		if(!SSticker.is_mode("dynamic"))
-			return tgui_alert(usr, "The game mode has to be dynamic mode!",, list("Ok"))
+			return tgui_alert(usr, "The game mode has to be dynamic mode!")
 
 		var/new_value = input(usr, "Enter the forced threat level for dynamic mode.", "Forced threat level") as num
 		if (new_value > 100)
-			return tgui_alert(usr, "The value must be be under 100.",, list("Ok"))
+			return tgui_alert(usr, "The value must be be under 100.")
 		GLOB.dynamic_forced_threat_level = new_value
 
 		log_admin("[key_name(usr)] set 'forced_threat_level' to [GLOB.dynamic_forced_threat_level].")
@@ -730,7 +730,7 @@
 			return
 
 		if (SSticker.HasRoundStarted())
-			if (tgui_alert(usr, "The game has already started. Would you like to save this as the default mode effective next round?", "Save mode", list("Yes", "Cancel"), timeout = 0) == "Yes")
+			if (tgui_alert(usr, "The game has already started. Would you like to save this as the default mode effective next round?", "Save mode", list("Yes", "Cancel")) == "Yes")
 				SSticker.save_mode(href_list["c_mode2"])
 			HandleCMode()
 			return
@@ -739,7 +739,7 @@
 		message_admins("<span class='adminnotice'>[key_name_admin(usr)] set the mode as [GLOB.master_mode].</span>")
 		to_chat(world, "<span class='adminnotice'><b>The mode is now: [GLOB.master_mode]</b></span>", confidential = TRUE)
 		Game() // updates the main game menu
-		if (tgui_alert(usr, "Would you like to save this as the default mode for the server?", "Save mode", list("Yes", "No"), timeout = 0) == "Yes")
+		if (tgui_alert(usr, "Would you like to save this as the default mode for the server?", "Save mode", list("Yes", "No")) == "Yes")
 			SSticker.save_mode(GLOB.master_mode)
 		HandleCMode()
 
@@ -748,9 +748,9 @@
 			return
 
 		if(SSticker.HasRoundStarted())
-			return tgui_alert(usr, "The game has already started.",, list("Ok"))
+			return tgui_alert(usr, "The game has already started.")
 		if(GLOB.master_mode != "secret")
-			return tgui_alert(usr, "The game mode has to be secret!",, list("Ok"))
+			return tgui_alert(usr, "The game mode has to be secret!")
 		GLOB.secret_force_mode = href_list["f_secret2"]
 		log_admin("[key_name(usr)] set the forced secret mode as [GLOB.secret_force_mode].")
 		message_admins("<span class='adminnotice'>[key_name_admin(usr)] set the forced secret mode as [GLOB.secret_force_mode].</span>")
@@ -1383,7 +1383,7 @@
 			return
 
 		if(!SSticker.HasRoundStarted())
-			tgui_alert(usr,"The game hasn't started yet!",,list("Ok"))
+			tgui_alert(usr,"The game hasn't started yet!")
 			return
 
 		var/mob/M = locate(href_list["traitor"])
@@ -1402,7 +1402,7 @@
 			return
 
 		if(!SSticker.HasRoundStarted())
-			tgui_alert(usr,"The game hasn't started yet!",,list("Ok"))
+			tgui_alert(usr,"The game hasn't started yet!")
 			return
 
 		var/target = locate(href_list["skill"])
@@ -1484,10 +1484,10 @@
 			paths += path
 
 		if(!paths)
-			tgui_alert(usr,"The path list you sent is empty.",,list("Ok"))
+			tgui_alert(usr,"The path list you sent is empty.")
 			return
 		if(length(paths) > 5)
-			tgui_alert(usr,"Select fewer object types, (max 5).",,list("Ok"))
+			tgui_alert(usr,"Select fewer object types, (max 5).")
 			return
 
 		var/list/offset = splittext(href_list["offset"],",")
@@ -2215,9 +2215,9 @@
 		return
 
 	if(SSticker.HasRoundStarted())
-		return tgui_alert(usr, "The game has already started.",, list("Ok"))
+		return tgui_alert(usr, "The game has already started.")
 	if(GLOB.master_mode != "secret")
-		return tgui_alert(usr, "The game mode has to be secret!",, list("Ok"))
+		return tgui_alert(usr, "The game mode has to be secret!")
 	var/dat = {"<B>What game mode do you want to force secret to be? Use this if you want to change the game mode, but want the players to believe it's secret. This will only work if the current game mode is secret.</B><HR>"}
 	for(var/mode in config.modes)
 		dat += {"<A href='?src=[REF(src)];[HrefToken()];f_secret2=[mode]'>[config.mode_names[mode]]</A><br>"}

@@ -362,10 +362,10 @@ GLOBAL_LIST_EMPTY(cryopod_computers)
 		var/datum/antagonist/antag = target.mind.has_antag_datum(/datum/antagonist)
 		var/datum/job/target_job = SSjob.GetJob(target.mind.assigned_role)
 		if(target_job.req_admin_notify)
-			tgui_alert(usr, "You're an important role![generic_plsnoleave_message]",, list("Ok"))
+			tgui_alert(usr, "You're an important role![generic_plsnoleave_message]")
 			caught = TRUE
 		if(antag)
-			tgui_alert(usr, "You're \a [antag.name]![generic_plsnoleave_message]",, list("Ok"))
+			tgui_alert(usr, "You're \a [antag.name]![generic_plsnoleave_message]")
 			caught = TRUE
 		if(caught)
 			COOLDOWN_START(target.client, cryo_warned, 5 MINUTES)
