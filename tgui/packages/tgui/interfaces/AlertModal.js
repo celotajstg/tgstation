@@ -10,6 +10,7 @@ import { Component, createRef } from 'inferno';
 import { Box, Button, Flex, Section } from '../components';
 import { Window } from '../layouts';
 import { createLogger } from '../logging';
+import { KEY_ENTER, KEY_SPACE } from 'common/keycodes';
 
 const modalLogger = createLogger('blungus');
 export class AlertModal extends Component {
@@ -52,9 +53,17 @@ export class AlertModal extends Component {
                     <Flex.Item key={buttonIndex} mx={1}>
                       <div
                         ref={buttonIndex === 0 ? this.buttonRef : null}
+                        tabIndex={buttonIndex}
                         className="Button Button--color--default"
                         px={3}
-                        onClick={() => act("choose", { choice: button })}>
+                        onClick={() => act("choose", { choice: button })}
+                        onKeyDown={e => {
+                          const keyCode = window.event ? e.which : e.keyCode;
+                          // Simulate a click when pressing space or enter.
+                          if (keyCode === KEY_SPACE || keyCode === KEY_ENTER) {
+                            act("choose", { choice: button });
+                          }
+                        }}>
                         {button}
                       </div>
                     </Flex.Item>
