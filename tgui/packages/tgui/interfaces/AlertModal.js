@@ -9,7 +9,9 @@ import { useBackend } from '../backend';
 import { Component, createRef } from 'inferno';
 import { Box, Button, Flex, Section } from '../components';
 import { Window } from '../layouts';
-import { logger } from '../logging';
+import { createLogger } from '../logging';
+
+const modalLogger = createLogger('blungus');
 export class AlertModal extends Component {
   constructor() {
     super();
@@ -18,6 +20,7 @@ export class AlertModal extends Component {
 
   componentDidMount() {
     const button = this.buttonRef.current;
+    modalLogger.log(button)
     setTimeout(() => button.focus(), 1);
   }
 
@@ -26,7 +29,7 @@ export class AlertModal extends Component {
     const { title, message, buttons, timeout } = data;
 
     return (
-      <Window title={title} width={350} height={150} canClose={timeout > 0}>
+      <Window title={title} width={350} height={150}>
         {timeout && <Loader value={timeout} />}
         <Window.Content>
           <Section fill>
@@ -47,12 +50,13 @@ export class AlertModal extends Component {
                 <Flex className="AlertModal__Buttons">
                   {buttons.map((button, buttonIndex) => (
                     <Flex.Item key={buttonIndex} mx={1}>
-                      <Button
+                      <div
                         ref={buttonIndex === 0 ? this.buttonRef : null}
+                        className="Button Button--color--default"
                         px={3}
                         onClick={() => act("choose", { choice: button })}>
                         {button}
-                      </Button>
+                      </div>
                     </Flex.Item>
                   ))}
                 </Flex>
