@@ -24,7 +24,7 @@ const DEFAULT_SIZE = [400, 600];
 export class Window extends Component {
   componentDidMount() {
     const { suspended } = useBackend(this.context);
-    const { canClose } = this.props;
+    const { canClose = true } = this.props;
     if (suspended) {
       return;
     }
@@ -64,7 +64,7 @@ export class Window extends Component {
 
   render() {
     const {
-      canClose,
+      canClose = true,
       theme,
       title,
       children,

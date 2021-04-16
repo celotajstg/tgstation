@@ -14,7 +14,7 @@ export const AlertModal = (props, context) => {
   const { title, message, buttons, timeout } = data;
 
   return (
-    <Window title={title} width={350} height={150} canClose={timeout}>
+    <Window title={title} width={350} height={150} canClose={timeout > 0}>
       {timeout && <Loader value={timeout} />}
       <Window.Content>
         <Section fill>
@@ -33,8 +33,8 @@ export const AlertModal = (props, context) => {
             </Flex.Item>
             <Flex.Item my={2}>
               <Flex className="AlertModal__Buttons">
-                {buttons.map(button => (
-                  <Flex.Item key={button} mx={1}>
+                {buttons.map((button, buttonIndex) => (
+                  <Flex.Item key={buttonIndex} mx={1}>
                     <Button
                       px={3}
                       onClick={() => act("choose", { choice: button })}>
