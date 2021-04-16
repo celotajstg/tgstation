@@ -14,106 +14,109 @@ import { Tooltip } from './Tooltip';
 
 const logger = createLogger('Button');
 
-export const Button = props => {
-  const {
-    className,
-    fluid,
-    icon,
-    iconRotation,
-    iconSpin,
-    iconColor,
-    iconPosition,
-    color,
-    disabled,
-    selected,
-    tooltip,
-    tooltipPosition,
-    tooltipOverrideLong,
-    ellipsis,
-    compact,
-    circular,
-    content,
-    children,
-    onclick,
-    onClick,
-    ...rest
-  } = props;
-  const hasContent = !!(content || children);
-  // A warning about the lowercase onclick
-  if (onclick) {
-    logger.warn(
-      `Lowercase 'onclick' is not supported on Button and lowercase`
-      + ` prop names are discouraged in general. Please use a camelCase`
-      + `'onClick' instead and read: `
-      + `https://infernojs.org/docs/guides/event-handling`);
-  }
-  // IE8: Use a lowercase "onclick" because synthetic events are fucked.
-  // IE8: Use an "unselectable" prop because "user-select" doesn't work.
-  return (
-    <Box
-      className={classes([
-        'Button',
-        fluid && 'Button--fluid',
-        disabled && 'Button--disabled',
-        selected && 'Button--selected',
-        hasContent && 'Button--hasContent',
-        ellipsis && 'Button--ellipsis',
-        circular && 'Button--circular',
-        compact && 'Button--compact',
-        iconPosition && 'Button--iconPosition--' + iconPosition,
-        (color && typeof color === 'string')
-          ? 'Button--color--' + color
-          : 'Button--color--default',
-        className,
-      ])}
-      tabIndex={!disabled && '0'}
-      unselectable={Byond.IS_LTE_IE8}
-      onClick={e => {
-        if (!disabled && onClick) {
-          onClick(e);
-        }
-      }}
-      onKeyDown={e => {
-        const keyCode = window.event ? e.which : e.keyCode;
-        // Simulate a click when pressing space or enter.
-        if (keyCode === KEY_SPACE || keyCode === KEY_ENTER) {
-          e.preventDefault();
+export class Button extends Component {
+  render() {
+    const {
+      className,
+      fluid,
+      icon,
+      iconRotation,
+      iconSpin,
+      iconColor,
+      iconPosition,
+      color,
+      disabled,
+      selected,
+      tooltip,
+      tooltipPosition,
+      tooltipOverrideLong,
+      ellipsis,
+      compact,
+      circular,
+      content,
+      children,
+      onclick,
+      onClick,
+      ...rest
+    } = this.props;
+    const hasContent = !!(content || children);
+    // A warning about the lowercase onclick
+    if (onclick) {
+      logger.warn(
+        `Lowercase 'onclick' is not supported on Button and lowercase`
+        + ` prop names are discouraged in general. Please use a camelCase`
+        + `'onClick' instead and read: `
+        + `https://infernojs.org/docs/guides/event-handling`);
+    }
+    // IE8: Use a lowercase "onclick" because synthetic events are fucked.
+    // IE8: Use an "unselectable" prop because "user-select" doesn't work.
+    return (
+      <Box
+        className={classes([
+          'Button',
+          fluid && 'Button--fluid',
+          disabled && 'Button--disabled',
+          selected && 'Button--selected',
+          hasContent && 'Button--hasContent',
+          ellipsis && 'Button--ellipsis',
+          circular && 'Button--circular',
+          compact && 'Button--compact',
+          iconPosition && 'Button--iconPosition--' + iconPosition,
+          (color && typeof color === 'string')
+            ? 'Button--color--' + color
+            : 'Button--color--default',
+          className,
+        ])}
+        tabIndex={!disabled && '0'}
+        unselectable={Byond.IS_LTE_IE8}
+        onClick={e => {
           if (!disabled && onClick) {
             onClick(e);
           }
-          return;
-        }
-        // Refocus layout on pressing escape.
-        if (keyCode === KEY_ESCAPE) {
-          e.preventDefault();
-          return;
-        }
-      }}
-      {...rest}>
-      {(icon && iconPosition !== 'right') && (
-        <Icon
-          name={icon}
-          color={iconColor}
-          rotation={iconRotation}
-          spin={iconSpin} />
-      )}
-      {content}
-      {children}
-      {(icon && iconPosition === 'right') && (
-        <Icon
-          name={icon}
-          color={iconColor}
-          rotation={iconRotation}
-          spin={iconSpin} />
-      )}
-      {tooltip && (
-        <Tooltip
-          content={tooltip}
-          overrideLong={tooltipOverrideLong}
-          position={tooltipPosition} />
-      )}
-    </Box>
-  );
+        }}
+        onKeyDown={e => {
+          const keyCode = window.event ? e.which : e.keyCode;
+          // Simulate a click when pressing space or enter.
+          if (keyCode === KEY_SPACE || keyCode === KEY_ENTER) {
+            e.preventDefault();
+            if (!disabled && onClick) {
+              onClick(e);
+            }
+            return;
+          }
+          // Refocus layout on pressing escape.
+          if (keyCode === KEY_ESCAPE) {
+            e.preventDefault();
+            return;
+          }
+        }}
+        {...rest}>
+        {this.props.autoFocus}
+        {(icon && iconPosition !== 'right') && (
+          <Icon
+            name={icon}
+            color={iconColor}
+            rotation={iconRotation}
+            spin={iconSpin} />
+        )}
+        {content}
+        {children}
+        {(icon && iconPosition === 'right') && (
+          <Icon
+            name={icon}
+            color={iconColor}
+            rotation={iconRotation}
+            spin={iconSpin} />
+        )}
+        {tooltip && (
+          <Tooltip
+            content={tooltip}
+            overrideLong={tooltipOverrideLong}
+            position={tooltipPosition} />
+        )}
+      </Box>
+    );
+  }
 };
 
 Button.defaultHooks = pureComponentHooks;
@@ -204,7 +207,7 @@ export class ButtonInput extends Component {
           input.focus();
           input.select();
         }
-        catch {}
+        catch { }
       }
     }
   }

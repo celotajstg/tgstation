@@ -6,12 +6,22 @@
 
 import { clamp01 } from 'common/math';
 import { useBackend } from '../backend';
+import { createRef } from 'inferno';
 import { Box, Button, Flex, Section } from '../components';
 import { Window } from '../layouts';
+import { logger } from '../logging';
+
+const inputRef = createRef();
 
 export const AlertModal = (props, context) => {
   const { act, data } = useBackend(context);
   const { title, message, buttons, timeout } = data;
+  if (inputRef.current) {
+    // logger.log(inputRef.current.props.px);
+    if (inputRef.current) {
+      setTimeout(() => inputRef.current.focus(), 1);
+    }
+  }
 
   return (
     <Window title={title} width={350} height={150} canClose={timeout > 0}>
@@ -36,6 +46,7 @@ export const AlertModal = (props, context) => {
                 {buttons.map((button, buttonIndex) => (
                   <Flex.Item key={buttonIndex} mx={1}>
                     <Button
+                      ref={buttonIndex === 0 ? inputRef : null}
                       px={3}
                       onClick={() => act("choose", { choice: button })}>
                       {button}
