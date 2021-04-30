@@ -1,0 +1,15 @@
+{
+	"cowboy": [
+		{
+			"type": "icon_state",
+			"icon_state": "cowboy_outside",
+			"blend_mode": "overlay",
+			"color_ids": [ 1 ]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "cowboy_inside",
+			"blend_mode": "overlay",
+		}
+	]
+}

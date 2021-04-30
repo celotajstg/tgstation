@@ -430,13 +430,15 @@
 /obj/item/clothing/shoes/cowboy
 	name = "cowboy boots"
 	desc = "A small sticker lets you know they've been inspected for snakes, It is unclear how long ago the inspection took place..."
-	icon_state = "cowboy_brown"
+	icon_state = "cowboy_outside"
 	permeability_coefficient = 0.05 //these are quite tall
 	pocket_storage_component_path = /datum/component/storage/concrete/pockets/shoes
 	custom_price = PAYCHECK_EASY
 	var/list/occupants = list()
 	var/max_occupants = 4
 	can_be_tied = FALSE
+	greyscale_config = /datum/greyscale_config/cowboy
+	greyscale_colors = "#663300"
 
 /obj/item/clothing/shoes/cowboy/Initialize()
 	. = ..()
@@ -477,12 +479,14 @@
 
 /obj/item/clothing/shoes/cowboy/white
 	name = "white cowboy boots"
-	icon_state = "cowboy_white"
+	greyscale_config = /datum/greyscale_config/cowboy
+	greyscale_colors = = "#FFFFFF"
 
 /obj/item/clothing/shoes/cowboy/black
 	name = "black cowboy boots"
 	desc = "You get the feeling someone might have been hanged in these boots."
-	icon_state = "cowboy_black"
+	greyscale_config = /datum/greyscale_config/cowboy
+	greyscale_colors = = "#4A4A4B"
 
 /obj/item/clothing/shoes/cowboy/fancy
 	name = "bilton wrangler boots"

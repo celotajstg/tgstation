@@ -19,22 +19,21 @@
 	name = "tie"
 	desc = "A neosilk clip-on tie."
 	icon = 'icons/obj/clothing/neck.dmi'
-	icon_state = "bluetie"
-	inhand_icon_state = "" //no inhands
+	icon_state = "tie"
 	w_class = WEIGHT_CLASS_SMALL
 	custom_price = PAYCHECK_EASY
 
 /obj/item/clothing/neck/tie/blue
 	name = "blue tie"
-	icon_state = "bluetie"
+	color = "#1E85BC"
 
 /obj/item/clothing/neck/tie/red
 	name = "red tie"
-	icon_state = "redtie"
+	color = "#D91414"
 
 /obj/item/clothing/neck/tie/black
 	name = "black tie"
-	icon_state = "blacktie"
+	color = "#4A4A4B"
 
 /obj/item/clothing/neck/tie/horrible
 	name = "horrible tie"
@@ -98,48 +97,40 @@
 
 /obj/item/clothing/neck/scarf/black
 	name = "black scarf"
-	icon_state = "scarf"
 	color = "#4A4A4B" //Grey but it looks black
 
 /obj/item/clothing/neck/scarf/pink
 	name = "pink scarf"
-	icon_state = "scarf"
-	color = "#F699CD" //Pink
+	color = "#F699CD"
 
 /obj/item/clothing/neck/scarf/red
 	name = "red scarf"
-	icon_state = "scarf"
-	color = "#D91414" //Red
+	color = "#D91414"
 
 /obj/item/clothing/neck/scarf/green
 	name = "green scarf"
-	icon_state = "scarf"
-	color = "#5C9E54" //Green
+	color = "#5C9E54"
 
 /obj/item/clothing/neck/scarf/darkblue
 	name = "dark blue scarf"
-	icon_state = "scarf"
-	color = "#1E85BC" //Blue
+	color = "#1E85BC"
 
 /obj/item/clothing/neck/scarf/purple
 	name = "purple scarf"
 	icon_state = "scarf"
-	color = "#9557C5" //Purple
+	color = "#9557C5"
 
 /obj/item/clothing/neck/scarf/yellow
 	name = "yellow scarf"
-	icon_state = "scarf"
-	color = "#E0C14F" //Yellow
+	color = "#E0C14F"
 
 /obj/item/clothing/neck/scarf/orange
 	name = "orange scarf"
-	icon_state = "scarf"
-	color = "#C67A4B" //Orange
+	color = "#C67A4B"
 
 /obj/item/clothing/neck/scarf/cyan
 	name = "cyan scarf"
-	icon_state = "scarf"
-	color = "#54A3CE" //Cyan
+	color = "#54A3CE"
 
 
 //Striped scarves get their own icons
@@ -157,18 +148,21 @@
 //However, these 3 don't have corgi versions of their sprites
 /obj/item/clothing/neck/stripedredscarf
 	name = "striped red scarf"
-	icon_state = "stripedredscarf"
+	icon_state = "stripedscarf"
 	custom_price = PAYCHECK_ASSISTANT * 0.2
+	color = "#D91414"
 
 /obj/item/clothing/neck/stripedgreenscarf
 	name = "striped green scarf"
-	icon_state = "stripedgreenscarf"
+	icon_state = "stripedscarf"
 	custom_price = PAYCHECK_ASSISTANT * 0.2
+	color = "#5C9E54"
 
 /obj/item/clothing/neck/stripedbluescarf
 	name = "striped blue scarf"
-	icon_state = "stripedbluescarf"
+	icon_state = "stripedscarf"
 	custom_price = PAYCHECK_ASSISTANT * 0.2
+	color = "#1E85BC"
 
 /obj/item/clothing/neck/petcollar
 	name = "pet collar"
