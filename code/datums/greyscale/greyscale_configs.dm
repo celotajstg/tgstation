@@ -97,6 +97,9 @@
 	icon_file = 'icons/obj/clothing/belts.dmi'
 	json_config = 'code/datums/greyscale/json_configs/fannypack.json'
 
+/datum/greyscale_config/fannypack/worn
+	icon_file = 'icons/mob/clothing/belt.dmi'
+
 /datum/greyscale_config/cowboy
 	icon_file = 'icons/obj/clothing/shoes.dmi'
 	json_config = 'code/datums/greyscale/json_configs/cowboy.json'

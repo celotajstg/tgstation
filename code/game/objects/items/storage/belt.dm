@@ -609,8 +609,11 @@
 	name = "fannypack"
 	desc = "A dorky fannypack for keeping small items in."
 	greyscale_config = /datum/greyscale_config/fannypack
-	greyscale_colors = "#FFFFF"
+	greyscale_config_worn = /datum/greyscale_config/fannypack/worn
+	greyscale_colors = "#FFFFFF"
 	icon_state = "fannypack"
+	worn_icon_state = "fannypack"
+	inhand_icon_state = "fannypack"
 	dying_key = DYE_REGISTRY_FANNYPACK
 	custom_price = PAYCHECK_ASSISTANT * 2
 
@@ -622,57 +625,52 @@
 
 /obj/item/storage/belt/fannypack/black
 	name = "black fannypack"
-	greyscale_config = /datum/greyscale_config/fannypack
+	inhand_icon_state = "fannypack_black"
 	greyscale_colors = "#4A4A4B"
 
 /obj/item/storage/belt/fannypack/leather
 	name = "leather fannypack"
-	greyscale_config = /datum/greyscale_config/fannypack
+	inhand_icon_state = "fannypack_leather"
+	worn_icon_state = "fannypack_leather"
 	icon_state = "fannypack_leather"
+	greyscale_colors = null
+	greyscale_config = null
+	greyscale_config_worn = null
 
 /obj/item/storage/belt/fannypack/red
 	name = "red fannypack"
-	greyscale_config = /datum/greyscale_config/fannypack
 	greyscale_colors = "#D91414"
 
 /obj/item/storage/belt/fannypack/purple
 	name = "purple fannypack"
-	greyscale_config = /datum/greyscale_config/fannypack
 	greyscale_colors = "#9557C5"
 
 /obj/item/storage/belt/fannypack/blue
 	name = "blue fannypack"
-	greyscale_config = /datum/greyscale_config/fannypack
 	greyscale_colors = "#1E85BC"
 
 /obj/item/storage/belt/fannypack/orange
 	name = "orange fannypack"
-	greyscale_config = /datum/greyscale_config/fannypack
 	greyscale_colors = "#C67A4B"
 
 /obj/item/storage/belt/fannypack/white
 	name = "white fannypack"
-	greyscale_config = /datum/greyscale_config/fannypack
 	greyscale_colors = "#FFFFFF"
 
 /obj/item/storage/belt/fannypack/green
 	name = "green fannypack"
-	greyscale_config = /datum/greyscale_config/fannypack
 	greyscale_colors = "#5C9E54"
 
 /obj/item/storage/belt/fannypack/pink
 	name = "pink fannypack"
-	greyscale_config = /datum/greyscale_config/fannypack
 	greyscale_colors = "#F699CD"
 
 /obj/item/storage/belt/fannypack/cyan
 	name = "cyan fannypack"
-	greyscale_config = /datum/greyscale_config/fannypack
 	greyscale_colors = "#54A3CE"
 
 /obj/item/storage/belt/fannypack/yellow
 	name = "yellow fannypack"
-	greyscale_config = /datum/greyscale_config/fannypack
 	greyscale_colors = "#E0C14F"
 
 /obj/item/storage/belt/sabre

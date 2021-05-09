@@ -9,7 +9,7 @@
 		{
 			"type": "icon_state",
 			"icon_state": "cowboy_inside",
-			"blend_mode": "overlay",
+			"blend_mode": "overlay"
 		}
 	]
 }

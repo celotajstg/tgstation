@@ -9,7 +9,7 @@
 		{
 			"type": "icon_state",
 			"icon_state": "fannypackzipper",
-			"blend_mode": "overlay",
+			"blend_mode": "overlay"
 		}
 	]
 }

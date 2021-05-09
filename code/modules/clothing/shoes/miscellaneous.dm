@@ -430,7 +430,8 @@
 /obj/item/clothing/shoes/cowboy
 	name = "cowboy boots"
 	desc = "A small sticker lets you know they've been inspected for snakes, It is unclear how long ago the inspection took place..."
-	icon_state = "cowboy_outside"
+	icon_state = "cowboy"
+	worn_icon_state = "cowboy_brown"
 	permeability_coefficient = 0.05 //these are quite tall
 	pocket_storage_component_path = /datum/component/storage/concrete/pockets/shoes
 	custom_price = PAYCHECK_EASY
@@ -479,31 +480,38 @@
 
 /obj/item/clothing/shoes/cowboy/white
 	name = "white cowboy boots"
-	greyscale_config = /datum/greyscale_config/cowboy
-	greyscale_colors = = "#FFFFFF"
+	worn_icon_state = "cowboy_white"
+	greyscale_colors = "#FFFFFF"
 
 /obj/item/clothing/shoes/cowboy/black
 	name = "black cowboy boots"
 	desc = "You get the feeling someone might have been hanged in these boots."
-	greyscale_config = /datum/greyscale_config/cowboy
-	greyscale_colors = = "#4A4A4B"
+	worn_icon_state = "cowboy_black"
+	greyscale_colors = "#4A4A4B"
 
 /obj/item/clothing/shoes/cowboy/fancy
 	name = "bilton wrangler boots"
 	desc = "A pair of authentic haute couture boots from Japanifornia. You doubt they have ever been close to cattle."
 	icon_state = "cowboy_fancy"
+	worn_icon_state = "cowboy_fancy"
+	greyscale_config = null
+	greyscale_colors = null
 	permeability_coefficient = 0.08
 
 /obj/item/clothing/shoes/cowboy/lizard
 	name = "lizard skin boots"
 	desc = "You can hear a faint hissing from inside the boots; you hope it is just a mournful ghost."
 	icon_state = "lizardboots_green"
+	worn_icon_state = "lizardboots_green"
+	greyscale_config = null
+	greyscale_colors = null
 	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, RAD = 0, FIRE = 40, ACID = 0) //lizards like to stay warm
 
 /obj/item/clothing/shoes/cowboy/lizard/masterwork
 	name = "\improper Hugs-The-Feet lizard skin boots"
 	desc = "A pair of masterfully crafted lizard skin boots. Finally a good application for the station's most bothersome inhabitants."
 	icon_state = "lizardboots_blue"
+	worn_icon_state = "lizardboots_blue"
 
 /obj/effect/spawner/lootdrop/lizardboots
 	name = "random lizard boot quality"
