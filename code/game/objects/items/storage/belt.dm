@@ -625,7 +625,6 @@
 
 /obj/item/storage/belt/fannypack/black
 	name = "black fannypack"
-	inhand_icon_state = "fannypack_black"
 	greyscale_colors = "#4A4A4B"
 
 /obj/item/storage/belt/fannypack/leather
